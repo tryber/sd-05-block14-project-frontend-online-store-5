@@ -10,7 +10,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
   - Serão quatro dias de de projeto.
   
-  - O projeto tem até a seguinte data: `05/07/2020 - 14:00h`. Para ser entregue a avaliação final.
+  - O projeto tem até a seguinte data: `05/08/2020 - 14:00h`. Para ser entregue a avaliação final.
 
 ## O que deverá ser desenvolvido
 
