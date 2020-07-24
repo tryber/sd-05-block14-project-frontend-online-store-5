@@ -1,8 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import {BrowserRouter, Link, Route} from 'react-router-dom';
-import ShoppingCart from './Pages/shoppingCart.jsx';
+import ShoppingCart from './Pages/ShoppingCart.jsx';
+import './App.css';
 
 function App() {
   return (
