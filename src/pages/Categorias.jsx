@@ -15,21 +15,32 @@ class Categorias extends React.Component {
     const { categorias } = this.state;
     const { onClick, reset } = this.props;
     return (
-      <div className="categories">
-        <div onClick={() => reset()} className="category">
-          Todas
-        </div>
+      <form className="categories">
+        <label className="category" htmlFor="todas">Todas</label>
+        <input
+          className="radio"
+          type="radio"
+          name="categories"
+          id="todas"
+          onClick={() => reset()}
+        />
+
         {categorias.map((categoria) => (
-          <div
-            onClick={() => onClick(categoria.id)}
-            className="category"
-            data-testid="category"
-            key={categoria.id}
-          >
-            {categoria.name}
+          <div>
+            <label data-testid="category" className="category" htmlFor={categoria.id}>
+              <input
+                className="radio"
+                id={categoria.id}
+                name="categories"
+                type="radio"
+                onClick={() => onClick(categoria.id)}
+                key={categoria.id}
+              />
+              {categoria.name}
+            </label>
           </div>
         ))}
-      </div>
+      </form>
     );
   }
 }

@@ -23,15 +23,15 @@ body {
   box-sizing: border-box;
   font-size: 12px;
   height: 100%;
-  max-width: 180px;
-  min-width: 180px;
+  max-width: 200px;
+  min-width: 200px;
   padding: 10px;
   text-align: start;
 }
 
 .product-list {
-  box-sizing: border-box;
   background-color: white;
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   height: fit-content;
@@ -121,4 +121,8 @@ input:focus {
   flex-direction: column;
   margin: 1%;
   width: 95px;
+}
+
+.radio {
+  display: none;
 }
