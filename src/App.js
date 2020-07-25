@@ -6,7 +6,7 @@ import SearchBar from './pages/SearchBar';
 import Categoria from './pages/Categorias';
 import ShoppingCart from './pages/ShoppingCart';
 
-import cartImage from './pages/shopping-cart.jpg';
+import cartImage from './images/shopping-cart.png';
 import './App.css';
 
 function App() {
@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <div className="main">
+          <Link className="cart-link" data-testid="shopping-cart-button" to="/cart">
+            <img className="cart-img" src={cartImage} alt="shopping cart" />
+          </Link>
           <div className="search-box">
-            <Link className="cart-link" data-testid="shopping-cart-button" to="/cart">
-              <img src={cartImage} alt="shopping cart" />
-            </Link>
             <SearchBar />
           </div>
           <div className="products">
