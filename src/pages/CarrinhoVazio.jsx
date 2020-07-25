@@ -1,5 +1,4 @@
 import React from 'react';
-// import Imagem from './shopping-cart.jpg';
 
 class CarrinhoVazio extends React.Component {
   render() {
