@@ -1,3 +1,7 @@
+body {
+  background-color: #fff159;
+}
+
 .App {
   text-align: center;
 }
@@ -26,9 +30,15 @@
 }
 
 .product-list {
+  box-sizing: border-box;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  min-height: 100%;
   padding: 2%;
   text-align: center;
-  width: 85%;
+  width: 100%;
 }
 
 .search-bar {
@@ -88,6 +98,8 @@
 }
 
 .search-icon {
+  background-color: white;
+  border: 0;
   border-left: lightgrey 1px solid;
   cursor: pointer;
   height: 20px;
@@ -102,4 +114,11 @@ input:focus {
 
 .hidden {
   color: white;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  width: 95px;
 }

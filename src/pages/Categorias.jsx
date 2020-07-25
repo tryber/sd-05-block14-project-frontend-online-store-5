@@ -13,10 +13,19 @@ class Categorias extends React.Component {
 
   render() {
     const { categorias } = this.state;
+    const { onClick, reset } = this.props;
     return (
       <div className="categories">
+        <div onClick={() => reset()} className="category">
+          Todas
+        </div>
         {categorias.map((categoria) => (
-          <div className="category" data-testid="category" key={categoria.id}>
+          <div
+            onClick={() => onClick(categoria.id)}
+            className="category"
+            data-testid="category"
+            key={categoria.id}
+          >
             {categoria.name}
           </div>
         ))}
