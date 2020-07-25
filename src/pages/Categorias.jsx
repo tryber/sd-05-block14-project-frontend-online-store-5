@@ -2,23 +2,22 @@ import React from 'react';
 import { getCategories } from '../services/api';
 
 class Categorias extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      categorias: [], 
-    }
+  constructor(props) {
+    super(props);
+    this.state = { categorias: [] };
   }
 
-  componentDidMount(){
-    getCategories().then((resolve) => this.setState({categorias: resolve}))
+  componentDidMount() {
+    getCategories().then((resolve) => this.setState({ categorias: resolve }));
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
-        {this.state.categorias.map((categoria) => <div data-testid="category" key={categoria.id}>{categoria.name}</div>)}
+        {this.state.categorias.map((categoria) =>
+        <div data-testid="category" key={categoria.id}>{categoria.name}</div>)}
       </div>
-    )
+    );
   }
 }
 

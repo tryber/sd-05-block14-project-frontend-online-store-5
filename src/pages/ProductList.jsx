@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import cartImage from './shopping-cart.jpg';
-import Categoria from './Categorias'
+import Categoria from './Categorias';
 
 class ProductList extends React.Component {
   render() {
