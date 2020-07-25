@@ -15,7 +15,7 @@ class Categorias extends React.Component {
     return (
       <div>
         {this.state.categorias.map((categoria) =>
-        <div data-testid="category" key={categoria.id}>{categoria.name}</div>)}
+          <div data-testid="category" key={categoria.id}>{categoria.name}</div>)}
       </div>
     );
   }
