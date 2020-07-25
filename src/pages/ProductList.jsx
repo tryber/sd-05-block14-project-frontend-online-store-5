@@ -13,8 +13,11 @@ class ProductList extends React.Component {
       <div className="product-list">
         {value.results.map((produto) => (
           <div className="product" key={produto.id} data-testid="product">
-            <img src={produto.thumbnail} alt={produto.title} />
-            {produto.title}
+            <img className="productImg" src={produto.thumbnail} alt={produto.title} />
+            <div>{produto.title}</div>
+            <div className="productPrice">{`R$${produto.price.toFixed(2)}`}</div>
+            {produto.shipping.free_shipping
+              ? <div className="free-shipping">Entrega grátis</div> : null}
           </div>
         ))}
       </div>

@@ -5,17 +5,24 @@ class Categorias extends React.Component {
   constructor(props) {
     super(props);
     this.state = { categorias: [] };
+    this.capitalize = this.capitalize.bind(this);
   }
 
   componentDidMount() {
     getCategories().then((resolve) => this.setState({ categorias: resolve }));
   }
 
+  capitalize(value = this.state.value) {
+    return value ? value.charAt(0).toUpperCase() + value.slice(1) : null;
+  }
+
   render() {
     const { categorias } = this.state;
-    const { onClick, reset } = this.props;
+    const { onClick, reset, value } = this.props;
     return (
       <form className="categories">
+        <div className="category-showvalue">{this.capitalize(value)}</div>
+        <div className="categories-title">Categorias</div>
         <label className="category" htmlFor="todas">Todas</label>
         <input
           className="radio"
@@ -24,9 +31,8 @@ class Categorias extends React.Component {
           id="todas"
           onClick={() => reset()}
         />
-
         {categorias.map((categoria) => (
-          <div>
+          <div key={categoria.id}>
             <label data-testid="category" className="category" htmlFor={categoria.id}>
               <input
                 className="radio"
@@ -34,7 +40,6 @@ class Categorias extends React.Component {
                 name="categories"
                 type="radio"
                 onClick={() => onClick(categoria.id)}
-                key={categoria.id}
               />
               {categoria.name}
             </label>

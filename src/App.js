@@ -38,12 +38,11 @@ class App extends React.Component {
   async makeSearch() {
     const { category, value } = this.state;
     const returnValue = await getProductsFromCategoryAndQuery(category, value);
-    console.log(returnValue);
     this.setState({ searchValue: returnValue });
   }
 
   render() {
-    const { searchValue } = this.state;
+    const { searchValue, value } = this.state;
     return (
       <div className="App">
         <BrowserRouter>
@@ -55,7 +54,7 @@ class App extends React.Component {
               <SearchBar onClick={this.getValue} />
             </div>
             <div className="products">
-              <Categoria onClick={this.getCategory} reset={this.resetCategory} />
+              <Categoria onClick={this.getCategory} reset={this.resetCategory} value={value} />
               <Switch>
                 <Route
                   exact
