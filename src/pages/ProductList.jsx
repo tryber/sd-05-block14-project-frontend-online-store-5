@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import cartImage from './shopping-cart.jpg';
+import Categoria from './Categorias';
 
 class ProductList extends React.Component {
   render() {
@@ -11,6 +12,9 @@ class ProductList extends React.Component {
         </Link>
         <div data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
+        </div>
+        <div>
+          <Categoria />
         </div>
       </div>
     );
