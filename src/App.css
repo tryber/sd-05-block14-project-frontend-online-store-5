@@ -82,19 +82,19 @@
 }
 
 .cart-img {
-  width: 30px;
   height: 25px;
+  width: 30px;
 }
 
 .search-icon {
-  width: 20px;
-  height: 20px;
+  border-left: lightgrey 1px solid;
   cursor: pointer;
+  height: 20px;
   padding-left: 1%;
   padding-right: 1%;
-  border-left: lightgrey 1px solid;
+  width: 20px;
 }
 
 input:focus {
-  outline: none;
+  outline: thin;
 }
