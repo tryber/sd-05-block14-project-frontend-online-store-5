@@ -12,10 +12,14 @@ class Categorias extends React.Component {
   }
 
   render() {
+    const { categorias } = this.state;
     return (
-      <div>
-        {this.state.categorias.map((categoria) =>
-          <div data-testid="category" key={categoria.id}>{categoria.name}</div>)}
+      <div className="categories">
+        {categorias.map((categoria) => (
+          <div className="category" data-testid="category" key={categoria.id}>
+            {categoria.name}
+          </div>
+        ))}
       </div>
     );
   }
