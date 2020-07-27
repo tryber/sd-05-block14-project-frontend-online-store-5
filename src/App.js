@@ -6,6 +6,7 @@ import ProductList from './pages/ProductList';
 import SearchBar from './pages/SearchBar';
 import Categoria from './pages/Categorias';
 import ShoppingCart from './pages/ShoppingCart';
+import ProductDetails from './pages/ProductDetails';
 
 import cartImage from './images/shopping-cart.png';
 import './App.css';
@@ -62,6 +63,7 @@ class App extends React.Component {
                   render={(props) => <ProductList {...props} value={searchValue} />}
                 />
                 <Route path="/cart" component={ShoppingCart} />
+                <Route path="/details/:id" component={ProductDetails} />
               </Switch>
             </div>
           </div>
