@@ -13,7 +13,7 @@ class ProductList extends React.Component {
     ) : (
       <div className="product-list">
         {value.results.map((produto) => (
-          <ProductInfo produto={produto} />
+          <ProductInfo key={produto.id} produto={produto} />
         ))}
       </div>
     );
