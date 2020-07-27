@@ -11,7 +11,8 @@ class ProductInfo extends React.Component {
           <div>{produto.title}</div>
           <div className="productPrice">{`R$${produto.price.toFixed(2)}`}</div>
           {produto.shipping.free_shipping
-            ? <div className="free-shipping" data-testid="free-shipping">Entrega grátis</div> : null}
+            ? <div className="free-shipping" data-testid="free-shipping">Entrega grátis</div>
+            : null}
         </Link>
       </div>
     );
