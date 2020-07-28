@@ -20,7 +20,7 @@ class FinalizarCompra extends Component {
           <input type="text" name="endereco" data-testid="checkout-address" />
         </form>
       </div>
-    )
+    );
   }
 }
 
