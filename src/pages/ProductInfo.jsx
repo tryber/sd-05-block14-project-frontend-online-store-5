@@ -4,7 +4,10 @@ import Button from './Button';
 
 class ProductInfo extends React.Component {
   render() {
-    const { produto, produto: { thumbnail } } = this.props;
+    const {
+      produto, addCart,
+      produto: { thumbnail },
+    } = this.props;
     return (
       <div data-testid="product" className="product">
         <Link to={`/details/${produto.id}`} className="prodLink" data-testid="product-detail-link">
@@ -13,11 +16,11 @@ class ProductInfo extends React.Component {
           </div>
           <div className="productTitle">{produto.title}</div>
           <div className="productPrice">{`R$${produto.price.toFixed(2)}`}</div>
-          {produto.shipping.free_shipping
-            ? <div className="free-shipping" data-testid="free-shipping">
-                Entrega grátis
-              </div>
-              : null}
+          {produto.shipping.free_shipping ? (
+            <div className="free-shipping" data-testid="free-shipping">
+              Entrega grátis
+            </div>
+          ) : null}
         </Link>
         <Button testId="product-add-to-cart" produto={produto} addCart={addCart} />
       </div>
