@@ -3,7 +3,7 @@ import ProductInfo from './ProductInfo';
 
 class ProductList extends React.Component {
   render() {
-    const { value } = this.props;
+    const { value, addCart } = this.props;
     return value === null ? (
       <div className="product-list">
         <div className="hidden" data-testid="home-initial-message">
@@ -13,7 +13,7 @@ class ProductList extends React.Component {
     ) : (
       <div className="product-list">
         {value.results.map((produto) => (
-          <ProductInfo produto={produto} />
+          <ProductInfo key={produto.id} produto={produto} addCart={addCart} />
         ))}
       </div>
     );
