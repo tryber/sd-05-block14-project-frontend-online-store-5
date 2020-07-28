@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class FinalizarCompra extends Component {
   render() {
     const { cart } = this.props;
     return (
       <div>
+        <Link to="/">Voltar</Link>
         {cart.map((produto) => (
           <div key={produto.id}>{produto.title}</div>
         ))}
