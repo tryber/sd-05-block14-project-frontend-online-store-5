@@ -1,5 +1,6 @@
 import React from 'react';
 import CarrinhoVazinho from './CarrinhoVazio';
+import { Link } from 'react-router-dom';
 // import imagem from './shopping-cart.jpg';
 
 class ShoppingCart extends React.Component {
@@ -20,6 +21,7 @@ class ShoppingCart extends React.Component {
             <div data-testid="shopping-cart-product-quantity">1</div>
           </div>
         ))}
+        <Link to="/checkout" data-testid="checkout-products">Finalizar Compra</Link>
       </div>
     );
   }

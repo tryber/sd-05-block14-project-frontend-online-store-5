@@ -9,12 +9,12 @@ import ProductDetails from './pages/ProductDetails';
 
 import cartImage from './images/shopping-cart.png';
 import './App.css';
-import FinalizarCompra from './pages/FinalizarCompra';
+import Checkout from './pages/FinalizarCompra';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { search: null, category: null, value: null, carrinho: [] };
+    this.state = { search: null, category: null, value: null, cart: [] };
     this.getCategory = this.getCategory.bind(this);
     this.getValue = this.getValue.bind(this);
     this.resetCategory = this.resetCategory.bind(this);
@@ -44,12 +44,12 @@ class App extends React.Component {
   }
 
   addCart(product) {
-    const { carrinho } = this.state;
-    this.setState({ carrinho: [...carrinho, product] });
+    const { cart } = this.state;
+    this.setState({ cart: [...cart, product] });
   }
 
   render() {
-    const { search, value, carrinho } = this.state;
+    const { search, value, cart } = this.state;
     return (
       <BrowserRouter>
         <div className="main">
@@ -65,14 +65,14 @@ class App extends React.Component {
                 path="/"
                 render={(props) => <List {...props} value={search} addCart={this.addCart} />}
               />
-              <Route path="/cart" render={(props) => <Cart {...props} carrinho={carrinho} />} />
+              <Route path="/cart" render={(props) => <Cart {...props} carrinho={cart} />} />
               <Route
                 path="/details/:id"
                 render={(props) => <ProductDetails {...props} addCart={this.addCart} />}
               />
               <Route path="/cart" component={Cart} />
               <Route path="/details/:id" component={ProductDetails} />
-              <Route path="/FinalizarCompra" componente={FinalizarCompra} />
+              <Route path="/checkout" render={(props) => <Checkout {...props} cart={cart} />} />
             </Switch>
           </div>
         </div>
