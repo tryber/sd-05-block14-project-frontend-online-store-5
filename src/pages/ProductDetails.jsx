@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from './Button';
 
 class ProductDetails extends React.Component {
@@ -18,6 +19,7 @@ class ProductDetails extends React.Component {
     const { addCart } = this.props;
     return produto ? (
       <div>
+        <Link to="/">Voltar</Link>
         <div data-testid="product-detail-name">{produto.title}</div>
         <Button testId="product-detail-add-to-cart" produto={produto} addCart={addCart} />
       </div>
