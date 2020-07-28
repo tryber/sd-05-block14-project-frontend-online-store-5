@@ -10,6 +10,7 @@ import ProductDetails from './pages/ProductDetails';
 
 import cartImage from './images/shopping-cart.png';
 import './App.css';
+import FinalizarCompra from './pages/FinalizarCompra';
 
 class App extends React.Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class App extends React.Component {
                 />
                 <Route path="/cart" component={ShoppingCart} />
                 <Route path="/details/:id" component={ProductDetails} />
+                <Route path="/FinalizarCompra" componente={FinalizarCompra} />
               </Switch>
             </div>
           </div>
