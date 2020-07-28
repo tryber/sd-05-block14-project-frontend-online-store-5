@@ -143,11 +143,19 @@ input:focus {
   color: #666;
   display: flex;
   flex-direction: column;
-  height: 281px;
+  height: 371px;
+  justify-content: space-between;
   margin: 1%;
   padding: 2%;
   text-align: left;
   width: 220px;
+}
+
+.prodLink {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
 }
 
 .product:hover {
@@ -155,9 +163,24 @@ input:focus {
 }
 
 .productImg {
-  height: 120px;
   margin: auto;
-  width: 120px;
+  max-height: 170px;
+  max-width: 170px;
+}
+
+.productImgContainer {
+  align-items: center;
+  display: flex;
+  height: 170px;
+  justify-content: center;
+  margin: 0 auto 10%;
+  width: 170px;
+}
+
+.productTitle {
+  height: 63px;
+  margin: 0 2%;
+  overflow: hidden;
 }
 
 .productPrice {
