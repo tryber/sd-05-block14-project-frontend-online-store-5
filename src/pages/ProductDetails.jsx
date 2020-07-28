@@ -17,6 +17,7 @@ class ProductDetails extends React.Component {
     const { produto } = this.state;
     return produto ? (
       <div>
+        <textarea data-testid="product-detail-evaluation" />
         <Link to="/">Voltar</Link>
         <div data-testid="product-detail-name">{produto.title}</div>
       </div>
