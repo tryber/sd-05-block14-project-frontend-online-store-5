@@ -9,6 +9,7 @@ import ProductDetails from './pages/ProductDetails';
 
 import cartImage from './images/shopping-cart.png';
 import './App.css';
+import FinalizarCompra from './pages/FinalizarCompra';
 
 class App extends React.Component {
   constructor(props) {
@@ -50,33 +51,32 @@ class App extends React.Component {
   render() {
     const { search, value, carrinho } = this.state;
     return (
-      <div className="App">
-        <BrowserRouter>
-          <div className="main">
-            <Link className="cart-link" data-testid="shopping-cart-button" to="/cart">
-              <img className="cart-img" src={cartImage} alt="shopping cart" />
-            </Link>
-            <div className="search-box">
-              <SearchBar onClick={this.getValue} />
-            </div>
-            <div className="products">
-              <Categoria onClick={this.getCategory} reset={this.resetCategory} value={value} />
-              <Switch>
-                <Route
-                  exact
-                  path="/"
-                  render={(props) => <List {...props} value={search} addCart={this.addCart} />}
-                />
-                <Route path="/cart" render={(props) => <Cart {...props} carrinho={carrinho} />} />
-                <Route
-                  path="/details/:id"
-                  render={(props) => <ProductDetails {...props} addCart={this.addCart} />}
-                />
-              </Switch>
-            </div>
+      <BrowserRouter>
+        <div className="main">
+          <Link className="cart-link" data-testid="shopping-cart-button" to="/cart">
+            <img className="cart-img" src={cartImage} alt="shopping cart" />
+          </Link>
+          <div className="search-box"><SearchBar onClick={this.getValue} /></div>
+          <div className="products">
+            <Categoria onClick={this.getCategory} reset={this.resetCategory} value={value} />
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={(props) => <List {...props} value={search} addCart={this.addCart} />}
+              />
+              <Route path="/cart" render={(props) => <Cart {...props} carrinho={carrinho} />} />
+              <Route
+                path="/details/:id"
+                render={(props) => <ProductDetails {...props} addCart={this.addCart} />}
+              />
+              <Route path="/cart" component={Cart} />
+              <Route path="/details/:id" component={ProductDetails} />
+              <Route path="/FinalizarCompra" componente={FinalizarCompra} />
+            </Switch>
           </div>
-        </BrowserRouter>
-      </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
