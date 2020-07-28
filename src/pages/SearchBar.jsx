@@ -47,7 +47,6 @@ export default class SearchBar extends Component {
           alt="search icon"
           data-testid="query-button"
         />
->>>>>>> fcb5589da9d9917d8b21817e8796e2d9d94f9dd1
       </div>
     );
   }

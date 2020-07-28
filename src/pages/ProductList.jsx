@@ -1,8 +1,9 @@
 import React from 'react';
+import ProductInfo from './ProductInfo';
 
 class ProductList extends React.Component {
   render() {
-    const { value } = this.props;
+    const { value, addCart } = this.props;
     return value === null ? (
       <div className="product-list">
         <div className="hidden" data-testid="home-initial-message">
@@ -12,13 +13,7 @@ class ProductList extends React.Component {
     ) : (
       <div className="product-list">
         {value.results.map((produto) => (
-          <div className="product" key={produto.id} data-testid="product">
-            <img className="productImg" src={produto.thumbnail} alt={produto.title} />
-            <div>{produto.title}</div>
-            <div className="productPrice">{`R$${produto.price.toFixed(2)}`}</div>
-            {produto.shipping.free_shipping
-              ? <div className="free-shipping">Entrega grátis</div> : null}
-          </div>
+          <ProductInfo key={produto.id} produto={produto} addCart={addCart} />
         ))}
       </div>
     );
