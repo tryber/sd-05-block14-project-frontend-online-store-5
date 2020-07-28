@@ -152,10 +152,10 @@ input:focus {
 }
 
 .prodLink {
-  text-decoration: none;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  text-decoration: none;
 }
 
 .product:hover {
@@ -171,15 +171,15 @@ input:focus {
 .productImgContainer {
   align-items: center;
   display: flex;
-  justify-content: center;
   height: 170px;
+  justify-content: center;
   margin: 0 auto 10%;
   width: 170px;
 }
 
 .productTitle {
-  margin: 0 2%;
   height: 63px;
+  margin: 0 2%;
   overflow: hidden;
 }
 
