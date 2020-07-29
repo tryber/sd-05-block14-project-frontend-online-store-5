@@ -6,7 +6,7 @@ class Imagem extends React.Component {
     const { cartImage, cartSize } = this.props;
     return (
       <Link className="cart-link" data-testid="shopping-cart-button" to="/cart">
-        {`(${cartSize})`}
+        <span data-testid="shopping-cart-size">{`(${cartSize})`}</span>
         <img className="cart-img" src={cartImage} alt="shopping cart" />
       </Link>
     );
