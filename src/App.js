@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from './services/api';
 import List from './pages/ProductList';
 import SearchBar from './pages/SearchBar';
@@ -10,6 +10,7 @@ import Details from './pages/ProductDetails';
 import cartImage from './images/shopping-cart.png';
 import './App.css';
 import Checkout from './pages/FinalizarCompra';
+import Imagem from './pages/Imagem';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,6 +23,17 @@ class App extends React.Component {
     this.addCart = this.addCart.bind(this);
     this.inc = this.inc.bind(this);
     this.dec = this.dec.bind(this);
+    this.loadCart = this.loadCart.bind(this);
+  }
+
+  componentDidMount() {
+    this.loadCart();
+  }
+
+  componentDidUpdate() {
+    const { cart, cartSize } = this.state;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cartSize', cartSize);
   }
 
   async getValue(selectedValue) {
@@ -60,15 +72,18 @@ class App extends React.Component {
     this.setState({ cartSize: cartSize - 1 });
   }
 
+  loadCart() {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const size = localStorage.getItem('cartSize');
+    this.setState({ cart: cart || [], cartSize: Number(size) || 0 });
+  }
 
   render() {
-    const { search, value, cart } = this.state;
+    const { search, value, cart, cartSize } = this.state;
     return (
       <BrowserRouter>
         <div className="main">
-          <Link className="cart-link" data-testid="shopping-cart-button" to="/cart">
-            <img className="cart-img" src={cartImage} alt="shopping cart" />
-          </Link>
+          <Imagem cartImage={cartImage} cartSize={cartSize} />
           <div className="search-box"><SearchBar onClick={this.getValue} /></div>
           <div className="products">
             <Categoria onClick={this.getCategory} reset={this.resetCategory} value={value} />
