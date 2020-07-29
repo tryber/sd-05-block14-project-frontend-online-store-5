@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CarrinhoVazinho from './CarrinhoVazio';
-// import imagem from './shopping-cart.jpg';
 
 class ShoppingCart extends React.Component {
   constructor(props) {
