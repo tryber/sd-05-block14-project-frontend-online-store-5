@@ -9,7 +9,7 @@ class Imagem extends React.Component {
         {`(${cartSize})`}
         <img className="cart-img" src={cartImage} alt="shopping cart" />
       </Link>
-    )
+    );
   }
 }
 
