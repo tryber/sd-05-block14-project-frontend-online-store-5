@@ -8,8 +8,9 @@ export default class CartItemQnt extends Component {
 
   increase() {
     const { qnt } = this.state;
+    const { max } = this.props;
 
-    this.setState({ qnt: qnt + 1 });
+    if (qnt < max) this.setState({ qnt: qnt + 1 });
   }
 
   decrease() {

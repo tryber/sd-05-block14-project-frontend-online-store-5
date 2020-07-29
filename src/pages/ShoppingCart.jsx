@@ -20,6 +20,7 @@ class ShoppingCart extends React.Component {
           <div key={product.id}>
             <div data-testid="shopping-cart-product-name">{product.title}</div>
             <QuantidadeCarrinho
+              max={product.available_quantity}
               inc={inc}
               dec={dec}
             />
