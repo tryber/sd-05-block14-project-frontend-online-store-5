@@ -6,8 +6,8 @@ import QuantidadeCarrinho from './QuantidadeCarrinho';
 class ShoppingCart extends React.Component {
   constructor(props) {
     super(props);
-    const { carrinho } = this.props;
-    this.state = { products: carrinho };
+    const { cart } = this.props;
+    this.state = { products: cart };
   }
 
   render() {
