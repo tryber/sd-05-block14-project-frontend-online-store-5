@@ -56,7 +56,7 @@ class App extends React.Component {
     const returnValue = await getProductsFromCategoryAndQuery(category, value);
     this.setState({ search: returnValue });
   }
-
+  
   addCart(product) {
     const { cart, cartSize } = this.state;
     this.setState({ cart: [...cart, product], cartSize: cartSize + 1 });
