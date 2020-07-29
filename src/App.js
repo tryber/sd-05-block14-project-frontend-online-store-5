@@ -5,7 +5,7 @@ import List from './pages/ProductList';
 import SearchBar from './pages/SearchBar';
 import Categoria from './pages/Categorias';
 import Cart from './pages/ShoppingCart';
-import ProductDetails from './pages/ProductDetails';
+import Details from './pages/ProductDetails';
 
 import cartImage from './images/shopping-cart.png';
 import './App.css';
@@ -14,12 +14,14 @@ import Checkout from './pages/FinalizarCompra';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { search: null, category: null, value: null, cart: [] };
+    this.state = { search: null, category: null, value: null, cart: [], cartSize: 0 };
     this.getCategory = this.getCategory.bind(this);
     this.getValue = this.getValue.bind(this);
     this.resetCategory = this.resetCategory.bind(this);
     this.makeSearch = this.makeSearch.bind(this);
     this.addCart = this.addCart.bind(this);
+    this.inc = this.inc.bind(this);
+    this.dec = this.dec.bind(this);
   }
 
   async getValue(selectedValue) {
@@ -44,9 +46,20 @@ class App extends React.Component {
   }
 
   addCart(product) {
-    const { cart } = this.state;
-    this.setState({ cart: [...cart, product] });
+    const { cart, cartSize } = this.state;
+    this.setState({ cart: [...cart, product], cartSize: cartSize + 1 });
   }
+
+  inc() {
+    const { cartSize } = this.state;
+    this.setState({ cartSize: cartSize + 1 });
+  }
+
+  dec() {
+    const { cartSize } = this.state;
+    this.setState({ cartSize: cartSize - 1 });
+  }
+
 
   render() {
     const { search, value, cart } = this.state;
@@ -65,13 +78,14 @@ class App extends React.Component {
                 path="/"
                 render={(props) => <List {...props} value={search} addCart={this.addCart} />}
               />
-              <Route path="/cart" render={(props) => <Cart {...props} carrinho={cart} />} />
+              <Route
+                path="/cart"
+                render={(props) => <Cart {...props} cart={cart} inc={this.inc} dec={this.dec} />}
+              />
               <Route
                 path="/details/:id"
-                render={(props) => <ProductDetails {...props} addCart={this.addCart} />}
+                render={(props) => <Details {...props} addCart={this.addCart} />}
               />
-              <Route path="/cart" component={Cart} />
-              <Route path="/details/:id" component={ProductDetails} />
               <Route path="/checkout" render={(props) => <Checkout {...props} cart={cart} />} />
             </Switch>
           </div>
