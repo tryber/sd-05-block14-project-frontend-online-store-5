@@ -23,7 +23,6 @@ class ShoppingCart extends React.Component {
 
   getTotal(qnt, gambiarra) {
     const { products } = this.state;
-    console.log(products);
     const total = products
       .reduce((acc, produto) => (acc + (produto.product.price
         * (qnt + gambiarra || produto.quantity))), 0);
