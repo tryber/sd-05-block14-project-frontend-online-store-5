@@ -8,7 +8,7 @@ class FinalizarCompra extends Component {
       <div>
         <Link to="/">Voltar</Link>
         {cart.map((produto) => (
-          <div key={produto.id}>{produto.title}</div>
+          <div key={produto.product.id}>{produto.product.title}</div>
         ))}
         <form>
           <label htmlFor="nome">Nome Completo</label>
