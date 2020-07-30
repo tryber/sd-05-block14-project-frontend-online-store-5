@@ -31,7 +31,7 @@ class Categorias extends React.Component {
           onClick={() => reset()}
         />
         {categorias.map((categoria) => (
-          <div key={categoria.id}>
+          <div className="catContainer" key={categoria.id}>
             <label data-testid="category" className="category" htmlFor={categoria.id}>
               <input
                 className="radio"

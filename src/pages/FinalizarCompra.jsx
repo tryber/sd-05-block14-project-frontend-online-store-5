@@ -6,7 +6,7 @@ class FinalizarCompra extends Component {
     const { cart } = this.props;
     return (
       <div>
-        <Link to="/">Voltar</Link>
+        <Link to="/cart">Voltar</Link>
         {cart.map((produto) => (
           <div key={produto.product.id}>{produto.product.title}</div>
         ))}
