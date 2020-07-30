@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import '../styles/ProductDetails.css';
 
 export default class ProductImgs extends Component {
