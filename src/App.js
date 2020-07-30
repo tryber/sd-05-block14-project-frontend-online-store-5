@@ -2,15 +2,15 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from './services/api';
 import List from './pages/ProductList';
-import SearchBar from './pages/SearchBar';
+import SearchBar from './components/SearchBar';
 import Categoria from './pages/Categorias';
 import Cart from './pages/ShoppingCart';
 import Details from './pages/ProductDetails';
 
 import cartImage from './images/shopping-cart.png';
-import './App.css';
+import './styles/App.css';
 import Checkout from './pages/FinalizarCompra';
-import Imagem from './pages/Imagem';
+import CartIcon from './components/ShoppingCartIcon';
 
 class App extends React.Component {
   constructor(props) {
@@ -57,9 +57,22 @@ class App extends React.Component {
     this.setState({ search: returnValue });
   }
 
-  addCart(product) {
+  addCart(product, qnt) {
     const { cart, cartSize } = this.state;
-    this.setState({ cart: [...cart, product], cartSize: cartSize + 1 });
+    if (cart.some((prod) => prod.product === product)) {
+      const newProd = cart.find((prod) => prod.product === product);
+      if (newProd.product.available_quantity > newProd.quantity) {
+        newProd.quantity += qnt;
+        const arrayIndex = cart.indexOf(cart.find((prod) => prod.product === product));
+        cart.splice(arrayIndex, arrayIndex + 1);
+        this.setState({ cart: [...cart, newProd], cartSize: Number(cartSize) + Number(qnt) });
+      }
+    } else {
+      this.setState({
+        cart: [...cart, { product, quantity: qnt }],
+        cartSize: Number(cartSize) + Number(qnt),
+      });
+    }
   }
 
   inc() {
@@ -83,7 +96,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="main">
-          <Imagem cartImage={cartImage} cartSize={cartSize} />
+          <CartIcon cartImage={cartImage} cartSize={cartSize} />
           <div className="search-box"><SearchBar onClick={this.getValue} /></div>
           <div className="products">
             <Categoria onClick={this.getCategory} reset={this.resetCategory} value={value} />

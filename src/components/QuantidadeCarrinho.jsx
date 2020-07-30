@@ -3,28 +3,34 @@ import React, { Component } from 'react';
 export default class CartItemQnt extends Component {
   constructor(props) {
     super(props);
-    this.state = { qnt: 1 };
+    const { qnt } = this.props;
+    this.state = { qnt: qnt || 1 };
   }
 
   increase() {
     const { qnt } = this.state;
-    const { max } = this.props;
-
-    if (qnt < max) this.setState({ qnt: qnt + 1 });
+    const { max, inc } = this.props;
+    if (qnt < max) {
+      this.setState({ qnt: qnt + 1 });
+      inc();
+    }
   }
 
   decrease() {
+    const { dec } = this.props;
     const { qnt } = this.state;
-    if (qnt > 0) this.setState({ qnt: qnt - 1 });
+    if (qnt > 0) {
+      this.setState({ qnt: qnt - 1 });
+      dec();
+    }
   }
 
   render() {
     const { qnt } = this.state;
-    const { inc, dec } = this.props;
     return (
       <div>
         <button
-          onClick={() => { this.decrease(); dec(); }}
+          onClick={() => this.decrease()}
           type="button"
           data-testid="product-decrease-quantity"
         >
@@ -32,7 +38,7 @@ export default class CartItemQnt extends Component {
         </button>
         <div data-testid="shopping-cart-product-quantity">{qnt}</div>
         <button
-          onClick={() => { this.increase(); inc(); }}
+          onClick={() => this.increase()}
           type="button"
           data-testid="product-increase-quantity"
         >

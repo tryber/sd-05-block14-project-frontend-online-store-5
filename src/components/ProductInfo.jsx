@@ -22,7 +22,7 @@ class ProductInfo extends React.Component {
             </div>
           ) : null}
         </Link>
-        <Button testId="product-add-to-cart" produto={produto} addCart={addCart} />
+        <Button testId="product-add-to-cart" produto={produto} addCart={addCart} qnt={1} />
       </div>
     );
   }

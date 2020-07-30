@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CarrinhoVazinho from './CarrinhoVazio';
-import QuantidadeCarrinho from './QuantidadeCarrinho';
+import QuantidadeCarrinho from '../components/QuantidadeCarrinho';
 
 class ShoppingCart extends React.Component {
   constructor(props) {
@@ -10,22 +10,29 @@ class ShoppingCart extends React.Component {
     this.state = { products: cart };
   }
 
+  componentDidMount() {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    this.setState({ products: cart || [] });
+  }
+
   render() {
     const { inc, dec } = this.props;
     const { products } = this.state;
     if (products.length === 0) return <CarrinhoVazinho />;
     return (
       <div>
-        {products.map((product) => (
-          <div key={product.id}>
-            <div data-testid="shopping-cart-product-name">{product.title}</div>
+        <Link to="/">Voltar</Link>
+        {products ? products.map((product) => (
+          <div key={product.product.id}>
+            <div data-testid="shopping-cart-product-name">{product.product.title}</div>
             <QuantidadeCarrinho
-              max={product.available_quantity}
+              max={product.product.available_quantity}
               inc={inc}
               dec={dec}
+              qnt={product.quantity}
             />
           </div>
-        ))}
+        )) : null}
         <Link to="/checkout" data-testid="checkout-products">Finalizar Compra</Link>
       </div>
     );
