@@ -75,14 +75,26 @@ class App extends React.Component {
     }
   }
 
-  inc() {
-    const { cartSize } = this.state;
-    this.setState({ cartSize: cartSize + 1 });
+  inc(product) {
+    const { cart, cartSize } = this.state;
+    const newProd = cart.find((prod) => prod.product.id === product.product.id);
+    if (newProd.product.available_quantity > newProd.quantity) {
+      newProd.quantity += 1;
+      const arrayIndex = cart.indexOf(cart.find((prod) => prod.product.id === product.product.id));
+      cart.splice(arrayIndex, arrayIndex + 1);
+      this.setState({ cart: [...cart, newProd], cartSize: Number(cartSize) + 1 });
+    }
   }
 
-  dec() {
-    const { cartSize } = this.state;
-    this.setState({ cartSize: cartSize - 1 });
+  dec(product) {
+    const { cart, cartSize } = this.state;
+    const newProd = cart.find((prod) => prod.product.id === product.product.id);
+    if (newProd.product.available_quantity > newProd.quantity) {
+      newProd.quantity -= 1;
+      const arrayIndex = cart.indexOf(cart.find((prod) => prod.product.id === product.product.id));
+      cart.splice(arrayIndex, arrayIndex + 1);
+      this.setState({ cart: [...cart, newProd], cartSize: Number(cartSize) - 1 });
+    }
   }
 
   loadCart() {

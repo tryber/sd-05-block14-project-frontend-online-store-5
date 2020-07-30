@@ -9,27 +9,28 @@ export default class CartItemQnt extends Component {
 
   increase() {
     const { qnt } = this.state;
-    const { max, inc } = this.props;
+    const { max, inc, produto } = this.props;
     if (qnt < max) {
-      this.setState({ qnt: qnt + 1 });
-      inc();
+      this.setState({ qnt: Number(qnt) + 1 });
+      inc(produto);
     }
   }
 
   decrease() {
-    const { dec } = this.props;
+    const { dec, produto } = this.props;
     const { qnt } = this.state;
     if (qnt > 0) {
-      this.setState({ qnt: qnt - 1 });
-      dec();
+      this.setState({ qnt: Number(qnt) - 1 });
+      dec(produto);
     }
   }
 
   render() {
     const { qnt } = this.state;
     return (
-      <div>
+      <div className="cartQuantity">
         <button
+          className="buttonQty"
           onClick={() => this.decrease()}
           type="button"
           data-testid="product-decrease-quantity"
@@ -38,6 +39,7 @@ export default class CartItemQnt extends Component {
         </button>
         <div data-testid="shopping-cart-product-quantity">{qnt}</div>
         <button
+          className="buttonQty"
           onClick={() => this.increase()}
           type="button"
           data-testid="product-increase-quantity"

@@ -25,16 +25,14 @@ class ShoppingCart extends React.Component {
     const { products } = this.state;
     if (products.length === 0) return <CarrinhoVazinho />;
     return (
-      <div>
+      <div className="shoppingCart">
         <Link to="/">Voltar</Link>
         {products ? products.map((product) => (
-          <div key={product.product.id}>
+          <div className="shoppingCartContainer" key={product.product.id}>
             <div data-testid="shopping-cart-product-name">{product.product.title}</div>
             <QuantidadeCarrinho
               max={product.product.available_quantity}
-              inc={inc}
-              dec={dec}
-              qnt={product.quantity}
+              inc={inc} dec={dec} qnt={product.quantity} produto={product}
             />
           </div>
         )) : null}
