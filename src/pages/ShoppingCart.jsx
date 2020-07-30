@@ -8,9 +8,14 @@ class ShoppingCart extends React.Component {
     super(props);
     const { cart } = this.props;
     this.state = { products: cart };
+    this.loadCart = this.loadCart.bind(this);
   }
 
   componentDidMount() {
+    this.loadCart();
+  }
+
+  loadCart() {
     const cart = JSON.parse(localStorage.getItem('cart'));
     this.setState({ products: cart || [] });
   }

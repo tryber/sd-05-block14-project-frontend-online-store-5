@@ -18,6 +18,10 @@ h1 {
   float: left;
 }
 
+.r {
+  display: none;
+}
+
 .radio {
   display: none;
 }

@@ -7,25 +7,25 @@ export default class Rating extends Component {
     const { rating } = this.props;
     let id;
     switch (true) {
-      case ( rating >= 4.8): id = 'star5';
+      case (rating >= 4.8): id = 'star5';
         break;
-      case ( rating >= 4.4): id = 'star4half';
+      case (rating >= 4.4): id = 'star4half';
         break;
-      case ( rating >= 4): id = 'star4';
+      case (rating >= 4): id = 'star4';
         break;
-      case ( rating >= 3.4): id = 'star3half';
+      case (rating >= 3.4): id = 'star3half';
         break;
-      case ( rating >= 3): id = 'star3';
+      case (rating >= 3): id = 'star3';
         break;
-      case ( rating >= 2.4): id = 'star2half';
+      case (rating >= 2.4): id = 'star2half';
         break;
-      case ( rating >= 2): id = 'star2';
+      case (rating >= 2): id = 'star2';
         break;
-      case ( rating >= 1.4): id = 'star1half';
+      case (rating >= 1.4): id = 'star1half';
         break;
-      case ( rating >= 1): id = 'star1';
+      case (rating >= 1): id = 'star1';
         break;
-      case ( rating >= 0.4): id = 'starhalf';
+      case (rating >= 0.4): id = 'starhalf';
         break;
       default:
     }

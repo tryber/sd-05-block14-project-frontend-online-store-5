@@ -15,7 +15,12 @@ export default class ProductImgs extends Component {
         <div className="picSlides">
           {pics.map((pic, i) => (
             <div key={pic.id} className="picPreviewContainer">
-              <img onMouseEnter={() => this.setState({ index: i })} className="picPreview" src={pic.url} alt="imagem do produto" />
+              <img
+                onMouseEnter={() => this.setState({ index: i })}
+                className="picPreview"
+                src={pic.url}
+                alt="imagem do produto"
+              />
             </div>
           ))}
         </div>
